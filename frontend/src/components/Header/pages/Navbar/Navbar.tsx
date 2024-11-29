@@ -8,13 +8,13 @@ function Navbar() {
             <h2>LOGO</h2>
           </li>
           <li className="navbar-list-item">
-            <a href="">Shop</a>
+            <a href="#">Shop</a>
           </li>
           <li className="navbar-list-item">
-            <a href="">On Sale</a>
+            <a href="#">New Clothes</a>
           </li>
           <li className="navbar-list-item">
-            <a href="">New Arrivals</a>
+            <a href="#">Top Clothes</a>
           </li>
           <li className="navbar-list-item">
             <a href="">Brands</a>

@@ -1,0 +1,82 @@
+.customer-review-container {
+  width: 100%;
+}
+
+/* Swipe Carousel Container Styles */
+
+.customer-review-carousel {
+  height: 100%;
+}
+
+.customer-review-swiper-container {
+  height: 100%;
+}
+/* Swiper Slide */
+
+.customer-review-slide {
+  height: 100%;
+  padding: 5px 0px;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.customer-review-slide.focused {
+  filter: blur(0);
+  transform: scale(1); /* Optional: Slightly enlarge focused slides */
+  cursor: pointer;
+}
+
+.customer-review-slide.focused:hover {
+  transform: translateZ(10px) scale(1.02);
+}
+
+.customer-review-slide.blurred {
+  filter: blur(5px);
+  transform: scale(0.9); /* Optional: Slightly shrink blurred slides */
+}
+
+/* Swiper Slide Item */
+
+.customer-review-slide-item-container {
+  height: 150px;
+  padding: 10% 10%;
+  border: 1px solid #d3d3d3;
+  border-radius: 12px;
+}
+
+/* Font Styles */
+
+h1.customer-review-header {
+  margin-bottom: 20px;
+}
+
+/* CR Header Styles */
+
+.customer-review-header {
+  padding: 0% 10%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.customer-review-header-h2 {
+}
+
+.customer-review-header-button-span {
+  width: 70px;
+  height: 30px;
+  display: flex;
+}
+
+.custom-cr-button {
+  border: none;
+  padding: 0px;
+  background: transparent;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.custom-cr-button:hover {
+  background-color: #d3d3d3;
+}

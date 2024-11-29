@@ -26,7 +26,7 @@ function Hero() {
             and cater to your sense of style
           </p>
           <div className="hero-left-button">
-            <Button btnText={"Shop Now"} />
+            <Button btnText={"Shop Now"} borderConfig="1px solid black" />
           </div>
           <div className="hero-left-statblock">
             <StatBlock statBlockList={statBlockList} />

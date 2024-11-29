@@ -1,6 +1,7 @@
 footer.footer-container {
-  min-height: 50vh;
+  /* min-height: 50vh; */
   padding: 2.5% 7.5%;
+  padding-bottom: 5%;
   background-color: aliceblue;
   display: flex;
   justify-content: flex-start;
@@ -8,10 +9,13 @@ footer.footer-container {
 
 .footer-list {
   margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .footer-list-item {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .footer-list-item.title {

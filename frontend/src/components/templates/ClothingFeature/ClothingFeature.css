@@ -11,6 +11,8 @@
 .clothing-feat-carousel {
   margin-bottom: 5%;
   height: 300px;
+  display: flex;
+  justify-content: center;
 }
 
 .clothing-feat-btn {

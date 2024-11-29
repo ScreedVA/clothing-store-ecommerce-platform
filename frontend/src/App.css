@@ -15,9 +15,11 @@ body p {
   color: #a6aebf;
 }
 
-body h1,
 body ul,
+body h1,
+body h2,
 body h3,
+body h4,
 body p,
 body menu {
   margin: 0px;
@@ -33,6 +35,9 @@ body menu {
   }
   h1 {
     font-size: 3.75rem;
+  }
+  h2 {
+    font-size: 3.25rem;
   }
   h3 {
     font-size: 2.5rem;
@@ -52,6 +57,9 @@ body menu {
   h1 {
     font-size: 2.75rem;
   }
+  h2 {
+    font-size: 2.25rem;
+  }
   h3 {
     font-size: 1.5rem;
   }
@@ -61,4 +69,19 @@ body menu {
   p {
     font-size: 0.75rem;
   }
+}
+
+/* Form Styles */
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-grid > div.form-item-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.form-grid > div.form-item-box > div.form-item-field {
 }

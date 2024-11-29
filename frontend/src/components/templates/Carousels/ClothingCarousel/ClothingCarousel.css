@@ -1,6 +1,9 @@
-.swiper-container {
-  width: 100%;
+.clothing-carousel-container {
   max-width: 800px;
+}
+
+.clothing-carousel-swiper-container {
+  width: 100%;
 }
 
 .swiper-slide {
@@ -23,14 +26,6 @@
   margin-bottom: 2%;
 }
 
-.slide-item-container .clothing-title {
-  font-weight: 600;
-}
-
-.slide-item-container .clothing-price {
-  font-weight: 600;
-}
-
 .clothing-img-container {
   background-color: #b2beb5;
   border-radius: 10px;
@@ -48,4 +43,11 @@
 .slide-item-container img:hover {
   transform: translateZ(20px) scale(1.05);
   /* z-index: 10; */
+}
+
+/* Font Styles */
+
+.slide-item-container .clothing-price,
+.slide-item-container .clothing-title {
+  font-weight: 600;
 }

@@ -15,6 +15,7 @@ import { ClothingCarouselDetails } from "../../../../models/CarouselModels";
 import clothingImg4 from "../../../../assets/Top Clothes/yellow-winter-hat-png.png";
 import clothingImg5 from "../../../../assets/Top Clothes/pink-gloves-png.png";
 import clothingImg6 from "../../../../assets/Top Clothes/white-winter-hat-png.png";
+import CustomerReviewCarousel from "../../../templates/Carousels/CustomerReviewCarousel/CustomerReviewCarousel";
 
 function Home() {
   const [newClothesCarouselList] = useState<ClothingCarouselDetails[]>([
@@ -72,11 +73,53 @@ function Home() {
           />
         </div>
         <hr />
-        <div className="hero-top-selling">
+        <div className="hero-top-clothing">
           <ClothingFeature
             clothingCarouselDetailsArray={topClothesCarouselList}
-            clothingFeatHeader={"TOP SELLING"}
+            clothingFeatHeader={"TOP CLOTHING"}
             clothingFeatButtonText={"View All"}
+          />
+        </div>
+        <div className="hero-cutomer-reveiw-carousel">
+          <CustomerReviewCarousel
+            reviewDetailsArray={[
+              {
+                customerName: "Jeff",
+                customerReviewBody: "I like the platform and the clothes",
+              },
+              {
+                customerName: "Anna",
+                customerReviewBody: "The gloves I ordred arrived right on time",
+              },
+              {
+                customerName: "Jeff",
+                customerReviewBody: "I like the platform and the clothes",
+              },
+              {
+                customerName: "Anna",
+                customerReviewBody: "The gloves I ordred arrived right on time",
+              },
+              {
+                customerName: "Jeff",
+                customerReviewBody: "I like the platform and the clothes",
+              },
+              {
+                customerName: "Anna",
+                customerReviewBody: "The gloves I ordred arrived right on time",
+              },
+              {
+                customerName: "Jeff",
+                customerReviewBody: "I like the platform and the clothes",
+              },
+              {
+                customerName: "Anna",
+                customerReviewBody: "The gloves I ordred arrived right on time",
+              },
+              {
+                customerName: "Jeff",
+                customerReviewBody: "I like the platform and the clothes",
+              },
+            ]}
           />
         </div>
       </div>

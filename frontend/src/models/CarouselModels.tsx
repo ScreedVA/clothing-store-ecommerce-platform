@@ -9,3 +9,8 @@ export interface ClothingCarouselDetails {
   clothingPrice: number;
   clothingImgAlt?: string;
 }
+
+export interface CustomerReviewDetails {
+  customerName: string;
+  customerReviewBody: string;
+}
