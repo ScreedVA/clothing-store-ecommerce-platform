@@ -1,0 +1,51 @@
+.swiper-container {
+  width: 100%;
+  max-width: 800px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Slide Item */
+
+.slide-item-container {
+  margin: 1%;
+  perspective: 1000px;
+}
+.slide-item-container p {
+  color: black;
+}
+
+.slide-item-container .slide-item-frag {
+  margin-bottom: 2%;
+}
+
+.slide-item-container .clothing-title {
+  font-weight: 600;
+}
+
+.slide-item-container .clothing-price {
+  font-weight: 600;
+}
+
+.clothing-img-container {
+  background-color: #b2beb5;
+  border-radius: 10px;
+}
+
+.slide-item-container img {
+  width: 100%;
+  /* height: auto; */
+  /* object-fit: cover; */
+  cursor: pointer;
+  transition: transform 0.4s ease;
+  /* position: relative; */
+}
+
+.slide-item-container img:hover {
+  transform: translateZ(20px) scale(1.05);
+  /* z-index: 10; */
+}

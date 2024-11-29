@@ -1,0 +1,23 @@
+.hero-container {
+  /* min-height: 100vh;
+  max-height: 100vh; */
+  height: 500px;
+  background-color: #ededed;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 15%;
+  padding-bottom: 15%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  height: 500px;
+  overflow: hidden;
+}
+.hero-left-button {
+  margin-bottom: 60px;
+}
+
+/* fonts */
+.hero-left > p {
+  margin: 20px 0px;
+}

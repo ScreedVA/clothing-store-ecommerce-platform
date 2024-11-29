@@ -1,0 +1,17 @@
+.btn-container > button {
+  font-weight: 600;
+  color: white;
+  border-radius: 40px;
+  border: none;
+  padding: 20px 65px;
+  background: linear-gradient(to right, white 50%, black 50%);
+  background-size: 250% 100%;
+  background-position: 100% 0;
+  transition: background-position 0.4s ease, color 0.4s ease;
+  cursor: pointer;
+}
+
+.btn-container > button:hover {
+  background-position: 0 0;
+  color: black;
+}

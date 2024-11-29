@@ -1,0 +1,13 @@
+.logo-banner-container {
+  padding: 2% 15%;
+  max-height: 200px;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.logo-img {
+  width: 10%;
+}

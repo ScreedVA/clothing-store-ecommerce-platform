@@ -1,0 +1,35 @@
+/* layout */
+
+.navbar-container {
+  position: fixed;
+  width: 100%;
+  padding: 10px 8%;
+  margin: 0px;
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  background-color: aliceblue;
+}
+
+.navbar-list {
+  list-style: none;
+  display: flex;
+}
+
+.navbar-list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+/* navbar left */
+.navbarlist.left {
+  grid-column: 1;
+}
+
+/* navbar right */
+
+.navbar-list.right {
+  grid-column: 2;
+}
