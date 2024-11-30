@@ -1,13 +1,17 @@
 import "./Login.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FormBoxConfigModel, FormFieldElementsEnum, FormInputTypesEnum } from "../../../../../models/FormModels";
 import { AnchorConfigModel, ButtonConfigModel } from "../../../../../models/ButtonModels";
 import GeneralForm from "../../../../templates/GeneralForms/GeneralForm";
-import { LoginRequestModel } from "../../../../../models/AuthModels";
+import { POSTLoginRequestModel } from "../../../../../models/AuthModels";
 import { ErrorLoginRequestModel } from "../../../../../models/ErrorModels";
 import { validateLoginRequestModel } from "../../../../../services/ValidationService";
+import { AuthContext, POSTLoginRequest } from "../../../../../services/http/AuthService";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
   // Login Form Configuration
   const [loginFormConfig] = useState<FormBoxConfigModel[]>([
     {
@@ -58,10 +62,8 @@ function Login() {
   });
 
   // Http Request and Validation Handling
-  const [loginDetails, setLoginDetails] = useState<LoginRequestModel>({
-    username: "Test Username",
-    password: "Test Password",
-  });
+  const [loginDetails, setLoginDetails] = useState<POSTLoginRequestModel>();
+
   const [errors, setErrors] = useState<ErrorLoginRequestModel>();
 
   const submitLogin = async (event: any) => {
@@ -69,6 +71,17 @@ function Login() {
     // const response: Response
     const validationErrors: ErrorLoginRequestModel = validateLoginRequestModel(loginDetails!);
     setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0 && loginDetails) {
+      const formData = new URLSearchParams();
+      formData.append("username", loginDetails.username);
+      formData.append("password", loginDetails.password);
+
+      const response: Response = await POSTLoginRequest(formData);
+      const tokenResponse: { access_token: string; refresh_token: string } = await response.json();
+      login(tokenResponse.access_token, tokenResponse.refresh_token);
+      navigate("/");
+    }
   };
 
   return (

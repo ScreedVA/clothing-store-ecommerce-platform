@@ -1,0 +1,1 @@
+from .auth_dependencies import oauth2_bearer

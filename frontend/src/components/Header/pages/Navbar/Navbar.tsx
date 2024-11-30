@@ -35,6 +35,7 @@ function Navbar() {
       navIcon: "fa-solid fa-person-walking-arrow-right",
       onClick: () => {
         logout();
+        navigate("/auth/login");
       },
     },
     {
@@ -80,9 +81,9 @@ function Navbar() {
           <h1 onClick={() => navigate("/")}>LOGO</h1>
         </div>
         <ul className="nav-list">
-          {navbarConfig.map((navItem) => (
-            <li className="nav-list-item">
-              <a onClick={navItem.onClick}>
+          {navbarConfig.map((navItem, index) => (
+            <li key={`${navItem}-${index}`} className="nav-list-item">
+              <a onClick={navItem.onClick} title={navItem.itemName}>
                 <i className={navItem.navIcon}></i>
               </a>
             </li>

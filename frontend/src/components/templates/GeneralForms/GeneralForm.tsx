@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ButtonConfigModel, AnchorConfigModel } from "../../../models/ButtonModels";
 import { FormBoxConfigModel } from "../../../models/FormModels";
 import Button from "../Button/Button";
-import { LoginRequestModel } from "../../../models/AuthModels";
+import { POSTLoginRequestModel } from "../../../models/AuthModels";
 import { ErrorLoginRequestModel } from "../../../models/ErrorModels";
 
 interface GeneralFormProps {
@@ -12,7 +12,7 @@ interface GeneralFormProps {
   formSubmitBtnConfig: ButtonConfigModel;
   formAnchorConfig: AnchorConfigModel;
   submitForm: (input: any) => void;
-  formDetails?: LoginRequestModel;
+  formDetails?: POSTLoginRequestModel;
   setFormDetails?: (input: any) => void;
   errors?: ErrorLoginRequestModel;
   formHeading?: string;
@@ -48,6 +48,7 @@ const GeneralForm: React.FC<GeneralFormProps> = ({
           [name]: value,
         };
       });
+      console.log(`Name ${name} Value: ${value}`);
     } else {
       console.log("setFormDetails function is undefined");
     }
