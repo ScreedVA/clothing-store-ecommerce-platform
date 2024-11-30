@@ -1,0 +1,7 @@
+.login-container {
+  /* height: 100vh; */
+  min-height: 30vh;
+  padding: 15% 10%;
+  display: flex;
+  justify-content: center;
+}

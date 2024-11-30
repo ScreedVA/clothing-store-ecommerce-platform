@@ -13,6 +13,7 @@ export enum FormInputTypesEnum {
   PASSWORD = "password",
   EMAIL = "email",
   RADIA = "radio",
+  FILE = "file",
   SEARCH = "search",
 }
 
@@ -22,7 +23,7 @@ interface FormElementConfigModel {
   id?: string;
 }
 
-interface LabelConfigModel {
+interface LabelConfigModel extends FormElementConfigModel {
   for: string;
   innerText: string;
 }
@@ -46,7 +47,7 @@ interface SelectConfigModel extends FormElementConfigModel {
 // Form Element Containers
 
 interface FormFieldConfigModel {
-  label?: LabelConfigModel;
+  label: LabelConfigModel;
   input?: InputConfigModel;
   select?: SelectConfigModel;
 }

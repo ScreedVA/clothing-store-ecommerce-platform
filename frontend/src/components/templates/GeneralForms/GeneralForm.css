@@ -1,0 +1,38 @@
+/* Login Container Fields */
+
+.general-form-container .form-grid {
+  padding: 15% 15%;
+  gap: 15px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.general-form-container.form-item-box {
+}
+
+.general-form-container.form-item-field {
+}
+
+/* Login Field Inner Styles */
+
+.general-form-container .form-item-field input {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  transition: border-color 0.4s ease;
+}
+
+.general-form-container .form-item-field input:focus {
+  outline: none;
+  border-color: black;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.general-form-container .redirect-link-container {
+  display: flex;
+  gap: 5px;
+}
+
+.general-form-container .redirect-link-container a {
+  cursor: pointer;
+}

@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./Button.css";
+import { ButtonConfigModel } from "../../../models/ButtonModels";
 
-interface ButtonProps {
-  btnText: string;
-  borderConfig?: string;
-  colorContrastConfig?: { baseColor: string; altColor: string };
-}
+interface ButtonProps extends ButtonConfigModel {}
 
-const Button: React.FC<ButtonProps> = ({ btnText, borderConfig, colorContrastConfig }) => {
+const Button: React.FC<ButtonProps> = ({
+  btnText,
+  colorContrastConfig,
+  btnBorder,
+  btnBorderRadius,
+  btnPadding,
+  btnOnClick,
+  btnType,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -21,8 +26,10 @@ const Button: React.FC<ButtonProps> = ({ btnText, borderConfig, colorContrastCon
   return (
     <div className="btn-container">
       <button
+        type={btnType || undefined}
         style={{
-          ...(borderConfig ? { border: borderConfig } : {}), // Control Custom Border Style
+          ...(btnBorder ? { border: btnBorder } : {}), // Control Custom Border Style
+
           ...(colorContrastConfig // Control Custom Hover Behavior
             ? {
                 background: `linear-gradient(to right, ${colorContrastConfig.altColor} 50%, ${colorContrastConfig.baseColor} 50%)`,
@@ -31,6 +38,12 @@ const Button: React.FC<ButtonProps> = ({ btnText, borderConfig, colorContrastCon
                 color: isHovered ? colorContrastConfig.altColor : colorContrastConfig.baseColor,
               }
             : {}),
+
+          // Button Radius Configuration
+          ...(btnBorderRadius ? { borderRadius: btnBorderRadius } : {}),
+
+          // Button Padding Configuration
+          ...(btnPadding ? { padding: btnPadding } : {}),
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

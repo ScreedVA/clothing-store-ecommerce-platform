@@ -1,35 +1,43 @@
 /* layout */
 
+/* Navbar Container */
+
 .navbar-container {
   position: fixed;
   width: 100%;
+  max-width: 100%;
   padding: 10px 8%;
   margin: 0px;
   z-index: 1000;
-  display: grid;
-  grid-template-columns: 80% 20%;
+  display: flex;
+  justify-content: space-between;
   background-color: aliceblue;
+  box-sizing: border-box;
 }
 
-.navbar-list {
-  list-style: none;
+/* Nav List Container Styles */
+
+.nav-logo {
+  cursor: pointer;
+}
+
+ul.nav-list {
   display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
-.navbar-list-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-right: 30px;
+li.nav-list-item {
 }
 
-/* navbar left */
-.navbarlist.left {
-  grid-column: 1;
+/* NavList Inner Element Styles */
+
+li.nav-list-item a {
+  cursor: pointer;
 }
 
-/* navbar right */
+li.nav-list-item a:hover {
+}
 
-.navbar-list.right {
-  grid-column: 2;
+li.nav-list-item i {
 }

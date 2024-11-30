@@ -24,7 +24,7 @@ const ClothingFeature: React.FC<ClothingFeatureProps> = ({
           <ClothingCarousel carouselDetailsArray={clothingCarouselDetailsArray} />
         </div>
         <div className="clothing-feat-btn">
-          <Button btnText={clothingFeatButtonText} borderConfig={"1px solid black"} />
+          <Button btnText={clothingFeatButtonText} btnBorder={"1px solid black"} />
         </div>
       </div>
     </>
