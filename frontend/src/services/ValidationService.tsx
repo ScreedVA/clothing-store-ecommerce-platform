@@ -4,8 +4,8 @@ import { ErrorLoginRequestModel, ErrorRegisterRequestModel } from "../models/Err
 export function validateLoginRequestModel(validationModel: POSTLoginRequestModel) {
   const errors: ErrorLoginRequestModel = {};
 
-  if (!validationModel.username) errors.username = "Username is required";
-  if (!validationModel.password) errors.password = "Password is required";
+  if (!validationModel || !validationModel.username) errors.username = "Username is required";
+  if (!validationModel || !validationModel.password) errors.password = "Password is required";
 
   return errors;
 }
@@ -17,6 +17,7 @@ export function validateRegisterRequestModel(validationModel: FrontendRegisterRe
   if (!validationModel || !validationModel.lastName) errors.lastName = "Last Name is required";
   if (!validationModel || !validationModel.email) errors.email = "Email is required";
   if (!validationModel || !validationModel.username) errors.username = "Username is required";
+  if (!validationModel || !validationModel.dateOfBirth) errors.dateOfBirth = "Date of birth is required";
   if (!validationModel || !validationModel.password) errors.password = "Password is required";
   if (!validationModel || !validationModel.passwordConfirm) errors.passwordConfirm = "Please confirm password";
   else if (validationModel.password !== validationModel.passwordConfirm) {

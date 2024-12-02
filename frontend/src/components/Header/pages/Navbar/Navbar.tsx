@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { NavItemConfigModel } from "../../../../models/NavbarModel";
 import { IconField } from "primeng/iconfield";
 import { AuthContext } from "../../../../services/http/AuthService";
@@ -9,10 +9,8 @@ function Navbar() {
   const navigate = useNavigate();
   const { logout, signedIn } = useContext(AuthContext);
   const [navbarConfig, setNavbarConfig] = useState<NavItemConfigModel[]>([]);
-
-  const [vwWidth, setVwWidth] = useState(window.innerWidth);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const navbarRef = useRef<HTMLDivElement>(null);
+  const placeholderRef = useRef<HTMLDivElement>(null);
 
   // Default navbar items
   const defaultNavbarConfig: NavItemConfigModel[] = [
@@ -47,48 +45,66 @@ function Navbar() {
     },
   ];
 
+  const updatePlaceholderHeight = () => {
+    if (navbarRef.current && placeholderRef.current) {
+      placeholderRef.current.style.height = `${navbarRef.current.offsetHeight}px`;
+      console.log(`${navbarRef.current.offsetHeight}px`);
+    }
+    console.log("update nav");
+  };
+
   useEffect(() => {
-    const handleResize = () => {
-      setVwWidth(window.innerWidth);
-    };
-
-    // Add event listener to update width on window resize
-    window.addEventListener("resize", handleResize);
-
     // Configure Navbar Items
+    console.log("Navbar");
+    updatePlaceholderHeight();
+    // Add resize event listener
+    window.addEventListener("resize", updatePlaceholderHeight);
+
     const filteredConfig = defaultNavbarConfig.filter((item) => {
       if (signedIn) {
         // Exclude "Login" and "Register" if signed in
         return item.itemName !== "Login" && item.itemName !== "Register";
-      } else {
+      } else if (!signedIn) {
         // Exclude "Logout" if not signed in
         return item.itemName !== "Logout" && item.itemName !== "Profile";
       }
-    });
 
+      return item;
+    });
     setNavbarConfig(filteredConfig);
 
-    // Cleanup the event listener on component unmount
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", updatePlaceholderHeight);
     };
-  }, [signedIn]);
+  }, [signedIn, navbarRef]);
 
   return (
     <>
-      <menu className="navbar-container">
+      <div ref={placeholderRef} className="navbar-placeholder"></div>
+      <menu ref={navbarRef} className="navbar-container">
         <div className="nav-logo">
           <h1 onClick={() => navigate("/")}>LOGO</h1>
         </div>
-        <ul className="nav-list">
-          {navbarConfig.map((navItem, index) => (
-            <li key={`${navItem}-${index}`} className="nav-list-item">
-              <a onClick={navItem.onClick} title={navItem.itemName}>
-                <i className={navItem.navIcon}></i>
-              </a>
-            </li>
-          ))}
-        </ul>
+
+        {/* Search Form Configuration */}
+        <div className="nav-right">
+          <div className="search-form-wrapper">
+            <form>
+              <input type="search" name="searchFilter" placeholder="Search" />
+            </form>
+          </div>
+
+          {/* Navlist Configuration */}
+          <ul className="nav-list">
+            {navbarConfig.map((navItem, index) => (
+              <li key={`${navItem}-${index}`} className="nav-list-item">
+                <a onClick={navItem.onClick} title={navItem.itemName}>
+                  <i className={navItem.navIcon}></i>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </menu>
     </>
   );

@@ -17,6 +17,7 @@ class SQLUserTable(TimeStampModel):
     is_admin = Column(Boolean, default=False)
 
     refresh_token = relationship('SQLRefreshTokenTable', back_populates='user')
+    
 
     def update_from_request(self, request: PUTUpdateUserDetailsSchema):
         self.username = request.username

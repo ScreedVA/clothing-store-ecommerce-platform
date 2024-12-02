@@ -4,3 +4,5 @@ export interface NavItemConfigModel {
   navIcon?: string;
   onClick?: () => void;
 }
+
+export interface Breadcrumbs {}

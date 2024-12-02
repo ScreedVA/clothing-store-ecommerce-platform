@@ -1,0 +1,15 @@
+.options-selector-wrapper,
+.option-selector-container,
+.option-selector-container * {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.option-selector-container {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 10px; /* Space between buttons */
+  padding: 0; /* Ensure no padding adds to width */
+}

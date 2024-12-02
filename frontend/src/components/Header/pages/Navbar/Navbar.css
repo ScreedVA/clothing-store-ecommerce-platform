@@ -2,8 +2,16 @@
 
 /* Navbar Container */
 
+.navbar-placeholder {
+  /* height: 20px; */
+  /* position: relative; */
+  /* z-index: 0; */
+  width: 100%;
+}
+
 .navbar-container {
   position: fixed;
+  top: 0;
   width: 100%;
   max-width: 100%;
   padding: 10px 8%;
@@ -13,12 +21,24 @@
   justify-content: space-between;
   background-color: aliceblue;
   box-sizing: border-box;
+  border-bottom: 1px solid gray;
+}
+
+.nav-right {
+  display: flex;
+  gap: 20px;
 }
 
 /* Nav List Container Styles */
 
 .nav-logo {
   cursor: pointer;
+}
+
+.search-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 ul.nav-list {
@@ -30,7 +50,13 @@ ul.nav-list {
 li.nav-list-item {
 }
 
-/* NavList Inner Element Styles */
+/* Nav Menu Element Styles */
+
+.search-form-wrapper input {
+  padding: 7px 10px;
+  border: 1px solid black;
+  border-radius: 9px;
+}
 
 li.nav-list-item a {
   cursor: pointer;

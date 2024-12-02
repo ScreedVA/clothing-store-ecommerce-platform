@@ -1,2 +1,5 @@
 .body-container {
+  padding: 0% 0%;
+  box-sizing: border-box;
+  max-width: 100%;
 }

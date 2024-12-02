@@ -1,0 +1,16 @@
+/* Inner Clothing Item Styles */
+
+.clothing-item-container * {
+  margin-bottom: 2%;
+}
+
+img.clothing-image:hover {
+  transform: translateZ(20px) scale(1.05);
+}
+/* Font Styles */
+
+.clothing-item-container p {
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+}

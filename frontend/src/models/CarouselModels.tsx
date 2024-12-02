@@ -3,7 +3,7 @@ export interface ImgCarouselModel {
   textAlt?: string;
 }
 
-export interface ClothingCarouselDetails {
+export interface ClothingItemSummaryConfig {
   clothingImgPath: string;
   clothingTitle: string;
   clothingPrice: number;

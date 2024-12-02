@@ -9,7 +9,7 @@ import clothingImg1 from "../../../../../src/assets/New Arrivals/pants-2-png.png
 import clothingImg2 from "../../../../../src/assets/New Arrivals/sneaker-shoe-png.png";
 import clothingImg3 from "../../../../../src/assets/New Arrivals/pants-png.png";
 import { useState } from "react";
-import { ClothingCarouselDetails } from "../../../../models/CarouselModels";
+import { ClothingItemSummaryConfig } from "../../../../models/CarouselModels";
 
 // Top Clothes Images
 import clothingImg4 from "../../../../assets/Top Clothes/yellow-winter-hat-png.png";
@@ -18,7 +18,7 @@ import clothingImg6 from "../../../../assets/Top Clothes/white-winter-hat-png.pn
 import CustomerReviewCarousel from "../../../templates/Carousels/CustomerReviewCarousel/CustomerReviewCarousel";
 
 function Home() {
-  const [newClothesCarouselList] = useState<ClothingCarouselDetails[]>([
+  const [newClothesCarouselList] = useState<ClothingItemSummaryConfig[]>([
     {
       clothingImgPath: clothingImg1,
       clothingTitle: "Blue Pants",
@@ -39,7 +39,7 @@ function Home() {
     },
   ]);
 
-  const [topClothesCarouselList] = useState<ClothingCarouselDetails[]>([
+  const [topClothesCarouselList] = useState<ClothingItemSummaryConfig[]>([
     {
       clothingImgPath: clothingImg4,
       clothingPrice: 300,

@@ -9,6 +9,7 @@ export interface POSTRegisterRequestModel {
   email: string;
   username: string;
   password: string;
+  dateOfBirth: string;
 }
 
 export interface FrontendRegisterRequestModel extends POSTRegisterRequestModel {

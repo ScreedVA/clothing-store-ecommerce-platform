@@ -1,0 +1,21 @@
+.breadcrumb {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0% 10%;
+  margin: 1.5rem 0;
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+  color: blue;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  font-weight: bold;
+  color: gray;
+}

@@ -3,12 +3,12 @@ import { useState } from "react";
 
 import ClothingCarousel from "../Carousels/ClothingCarousel/ClothingCarousel";
 import Button from "../Button/Button";
-import { ClothingCarouselDetails } from "../../../models/CarouselModels";
+import { ClothingItemSummaryConfig } from "../../../models/CarouselModels";
 
 interface ClothingFeatureProps {
   clothingFeatHeader: string;
   clothingFeatButtonText: string;
-  clothingCarouselDetailsArray: ClothingCarouselDetails[];
+  clothingCarouselDetailsArray: ClothingItemSummaryConfig[];
 }
 
 const ClothingFeature: React.FC<ClothingFeatureProps> = ({

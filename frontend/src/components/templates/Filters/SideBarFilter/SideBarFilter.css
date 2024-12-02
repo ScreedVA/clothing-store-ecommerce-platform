@@ -1,0 +1,12 @@
+.sidebar-filter-container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.size-selector {
+  width: 100%;
+  max-width: 100%;
+}
