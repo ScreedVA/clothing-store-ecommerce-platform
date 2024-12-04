@@ -8,16 +8,10 @@ interface PriceSliderProps extends PriceSliderConfig {
   setValues: (prevValues: number[]) => void;
 }
 
-const PriceSlider: React.FC<PriceSliderProps> = ({
-  min: priceLowerLimit,
-  max: priceUpperLimit,
-  heading,
-  setValues,
-  values,
-}) => {
+const PriceSlider: React.FC<PriceSliderProps> = ({ min, max, heading, setValues, values }) => {
   const STEP = 1;
-  const MIN = priceLowerLimit;
-  const MAX = priceUpperLimit;
+  const MIN = min;
+  const MAX = max;
 
   async function handleValueChange(values: number[]) {
     await setValues(values);

@@ -39,7 +39,12 @@ function Hero() {
               individuality and cater to your sense of style
             </p>
             <div className="hero-left-button">
-              <Button btnText={"Shop Now"} btnBorder="1px solid black" btnOnClick={() => navigate("/shop")} />
+              <Button
+                btnText={"Shop Now"}
+                btnBorder="1px solid black"
+                btnOnClick={() => navigate("/shop")}
+                // btnWidth="100%"
+              />
             </div>
             <div className="hero-left-statblock">
               <StatBlock statBlockList={statBlockList} />

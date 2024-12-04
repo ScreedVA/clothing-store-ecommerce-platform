@@ -34,6 +34,6 @@ class EnumClothingSizeVarations(Enum):
     XXX_LARGE = "XXX Large"
 
 class EnumClothingColorVariations(Enum):
-    RED = "Red"
-    BLUE ="Blue"
-    BLACK = "Black"
+    RED = "red"
+    BLUE ="blue"
+    BLACK = "black"

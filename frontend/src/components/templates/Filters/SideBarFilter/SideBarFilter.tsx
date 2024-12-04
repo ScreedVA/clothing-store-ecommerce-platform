@@ -9,15 +9,19 @@ import { ButtonConfigModel } from "../../../../models/ButtonModels";
 interface SideBarFilterProps {
   priceSliderConfig: PriceSliderConfig;
   sizeSelectorConfigArray: OptionsSelectorConfig[];
+  colorSelectorConfigArray: OptionsSelectorConfig[];
   filter: BackendClothingFilterModel;
-  sendFilter: (prevValues: any) => void;
+  updateFilter: (prevValues: any) => void;
+  applyFilter: () => void;
 }
 
 const SideBarFilter: React.FC<SideBarFilterProps> = ({
   priceSliderConfig,
   sizeSelectorConfigArray,
+  colorSelectorConfigArray,
   filter,
-  sendFilter,
+  updateFilter,
+  applyFilter,
 }) => {
   // Price Slider Configuration
   const [filterPriceSliderConfig] = useState<PriceSliderConfig>(priceSliderConfig);
@@ -29,27 +33,35 @@ const SideBarFilter: React.FC<SideBarFilterProps> = ({
   // Size Selector Configuration
   const [selectedSizeIndex, setSelectedSizeIndex] = useState<number>(0);
 
+  // Color Selector Configuration
+  const [selectedColorIndex, setSelectedColorIndex] = useState<number>(0);
+
   // Button Configuration
   const [filterBtnConfiguration] = useState<ButtonConfigModel>({
     btnText: "Apply Filter",
+    btnType: "button",
     btnWidth: "100%",
   });
 
   // Filter Initialization
-  async function handleFilter() {
-    await sendFilter((prevFilter: BackendClothingFilterModel) => {
-      return {
-        ...prevFilter,
-        priceRange: { min: priceSliderValues[0], max: priceSliderValues[1] },
-        sizeSelector: sizeSelectorConfigArray[selectedSizeIndex],
-      };
-    });
-    console.log(filter);
+  async function handleFilterChange() {
+    const updatedFilter = {
+      ...filter,
+      priceRange: { min: priceSliderValues[0], max: priceSliderValues[1] },
+      sizeSelector: sizeSelectorConfigArray[selectedSizeIndex],
+      colorSelector: colorSelectorConfigArray[selectedColorIndex],
+    };
+
+    updateFilter(updatedFilter);
   }
 
+  // useEffect(() => {
+  //   console.log(filter);
+  // }, [filter]);
+
   useEffect(() => {
-    handleFilter();
-  }, [priceSliderValues, selectedSizeIndex]);
+    handleFilterChange();
+  }, [priceSliderValues, selectedSizeIndex, selectedColorIndex]);
 
   return (
     <>
@@ -76,8 +88,20 @@ const SideBarFilter: React.FC<SideBarFilterProps> = ({
               updateSelctionIndex={setSelectedSizeIndex}
             />
           </div>
+
+          <hr />
+          <h4 style={{ margin: "10px 0px" }}>Color</h4>
+          <div className="color-selector">
+            <OptionsSelector
+              optionSelectorConfigList={colorSelectorConfigArray}
+              selectedIndex={selectedColorIndex}
+              updateSelctionIndex={setSelectedColorIndex}
+              colorSelector={true}
+              btnSelector={false}
+            />
+          </div>
           <div className="filter-button" style={{ margin: "20px 0px" }}>
-            <Button {...filterBtnConfiguration} />
+            <Button {...filterBtnConfiguration} btnOnClick={() => applyFilter()} />
           </div>
         </form>
       </div>

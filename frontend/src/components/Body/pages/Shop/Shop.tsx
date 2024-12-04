@@ -9,8 +9,11 @@ import {
 import { FrontendClothingItemSummaryModel } from "../../../../models/ClothingModels";
 
 import ClothingGallery from "../../../templates/Clothing/ClothingGallery/ClothingGallery";
-import { GETClothingItemSummaryList } from "../../../../services/http/ClothingService";
-import { EnumCLothingSizeVarations } from "../../../../enumeration/ClothingEnums";
+import {
+  GETClothingItemSummaryHighestPrice,
+  GETClothingItemSummaryList,
+} from "../../../../services/http/ClothingService";
+import { EnumClothingColorVariations, EnumCLothingSizeVarations } from "../../../../enumeration/ClothingEnums";
 
 function Shop() {
   const [clothingGalleryList, setClothingGalleryList] = useState<FrontendClothingItemSummaryModel[]>();
@@ -18,6 +21,19 @@ function Shop() {
   let isMobile = vwWidth <= 1400;
 
   // Init Side bar filter
+  async function initHighestItemPrice() {
+    const response = await GETClothingItemSummaryHighestPrice();
+    const resData: FrontendClothingItemSummaryModel = await response.json();
+    const highestPrice: number = resData.price;
+
+    setFilter((prevFilter: any) => ({
+      ...prevFilter,
+      priceRange: { ...prevFilter.priceRange, max: highestPrice },
+    }));
+  }
+  useEffect(() => {
+    initHighestItemPrice();
+  }, []);
   const [filter, setFilter] = useState<BackendClothingFilterModel>({
     priceRange: { min: 0, max: 500 },
     sizeSelector: EnumCLothingSizeVarations.SMALL,
@@ -28,21 +44,38 @@ function Shop() {
       min: 0,
       max: 500,
     },
-    sizeSelectorConfigArray: Object.values(EnumCLothingSizeVarations).map((value) => ({
-      innerText: value,
-      value: value,
+    sizeSelectorConfigArray: Object.values(EnumCLothingSizeVarations).map((enumValue) => ({
+      value: enumValue,
+    })),
+    colorSelectorConfigArray: Object.values(EnumClothingColorVariations).map((enumValue) => ({
+      value: enumValue,
+      color: enumValue,
     })),
   });
+  function updateFilter(newFilter: BackendClothingFilterModel) {
+    setFilter({ ...newFilter });
+  }
 
   const handleResize = () => {
     setVwWidth(window.innerWidth);
   };
 
   async function initClothingItemSummaryModel() {
-    const frontendClothingItemListResData: FrontendClothingItemSummaryModel[] = await GETClothingItemSummaryList();
+    const frontendClothingItemListResData: FrontendClothingItemSummaryModel[] = await GETClothingItemSummaryList(
+      filter
+    );
 
     setClothingGalleryList(frontendClothingItemListResData);
   }
+
+  async function applyFilter() {
+    console.log(filter);
+    await initClothingItemSummaryModel();
+  }
+
+  useEffect(() => {
+    console.log(filter);
+  }, [filter]);
 
   useEffect(() => {
     // Initialize CLothing Gallery List
@@ -63,7 +96,12 @@ function Shop() {
             // Desktop Shop View
             <div className="left">
               <div className="filter-container">
-                <SideBarFilter filter={filter} sendFilter={setFilter} {...filterConfig} />
+                <SideBarFilter
+                  applyFilter={applyFilter}
+                  filter={filter}
+                  updateFilter={updateFilter}
+                  {...filterConfig}
+                />
               </div>
             </div>
           ) : (
@@ -77,7 +115,12 @@ function Shop() {
               }}
             >
               <div className="filter-container">
-                <SideBarFilter filter={filter} sendFilter={setFilter} {...filterConfig} />
+                <SideBarFilter
+                  applyFilter={applyFilter}
+                  filter={filter}
+                  updateFilter={updateFilter}
+                  {...filterConfig}
+                />
               </div>
             </div>
           )}

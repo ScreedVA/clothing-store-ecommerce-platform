@@ -12,14 +12,14 @@ class BaseClothingSchema(BaseModel):
     id: int
     name: str = Field(alias="name")
     price: int = Field(alias="price")
-    img_alt_text: str = Field(alias="imgAltText")
     rating: int
 
     class Config:
         populate_by_name = True
 
 class GETClothingItemSummarySchema(BaseClothingSchema):
-    primary_img_id: int = Field(None, alias="primaryImgId")
+    img_alt_text: Optional[str] = Field(alias="imgAltText")
+    primary_img_id: Optional[int] = Field(None, alias="primaryImgId")
     
 
 class GETClothingItemDetailsSchema(BaseClothingSchema):
@@ -28,11 +28,10 @@ class GETClothingItemDetailsSchema(BaseClothingSchema):
     size_variations: List[EnumClothingSizeVarations] = Field(alias="sizeVariations")
 
 # Filters
-class FilterFieldPriceSlider(BaseModel):
-    min: int
-    max: int
-
 class FilterForClothingTable(BaseModel):
-    price_range: Optional[FilterFieldPriceSlider] = Field(None)
-    size_selection: Optional[EnumClothingSizeVarations] = Field(None)
+    min_price: Optional[int] = Query(None)
+    max_price: Optional[int] = Query(None)
+    size_selection: Optional[EnumClothingSizeVarations] = Query(None)
+    color_selection: Optional[EnumClothingColorVariations] = Query(None)
+
 

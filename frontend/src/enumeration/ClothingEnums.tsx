@@ -9,6 +9,12 @@ export enum EnumCLothingSizeVarations {
   XXX_LARGE = "XXX Large",
 }
 
+export enum EnumClothingColorVariations {
+  RED = "red",
+  BLUE = "blue",
+  BLACK = "black",
+}
+
 export enum EnumClothingPatterns {
   PLAID = "Plaid",
   CAMOUFLAGE = "Camouflage",
