@@ -9,7 +9,7 @@ import clothingImg1 from "../../../../../src/assets/New Arrivals/pants-2-png.png
 import clothingImg2 from "../../../../../src/assets/New Arrivals/sneaker-shoe-png.png";
 import clothingImg3 from "../../../../../src/assets/New Arrivals/pants-png.png";
 import { useState } from "react";
-import { ClothingItemSummaryConfig } from "../../../../models/CarouselModels";
+import { BackendClothingItemSummaryModel } from "../../../../models/ClothingModels";
 
 // Top Clothes Images
 import clothingImg4 from "../../../../assets/Top Clothes/yellow-winter-hat-png.png";
@@ -18,45 +18,51 @@ import clothingImg6 from "../../../../assets/Top Clothes/white-winter-hat-png.pn
 import CustomerReviewCarousel from "../../../templates/Carousels/CustomerReviewCarousel/CustomerReviewCarousel";
 
 function Home() {
-  const [newClothesCarouselList] = useState<ClothingItemSummaryConfig[]>([
+  const [newClothesCarouselList] = useState<BackendClothingItemSummaryModel[]>([
     {
-      clothingImgPath: clothingImg1,
-      clothingTitle: "Blue Pants",
-      clothingPrice: 208,
-      clothingImgAlt: "blue pants",
+      id: 1,
+      imgUrl: clothingImg1,
+      name: "Blue Pants",
+      price: 208,
+      imgAltText: "blue pants",
     },
     {
-      clothingImgPath: clothingImg2,
-      clothingTitle: "Sneakers",
-      clothingPrice: 120,
-      clothingImgAlt: "sneakers",
+      id: 2,
+      imgUrl: clothingImg2,
+      name: "Sneakers",
+      price: 120,
+      imgAltText: "sneakers",
     },
     {
-      clothingImgPath: clothingImg3,
-      clothingTitle: "Green Pants",
-      clothingPrice: 180,
-      clothingImgAlt: "green pants",
+      id: 3,
+      imgUrl: clothingImg3,
+      name: "Green Pants",
+      price: 180,
+      imgAltText: "green pants",
     },
   ]);
 
-  const [topClothesCarouselList] = useState<ClothingItemSummaryConfig[]>([
+  const [topClothesCarouselList] = useState<BackendClothingItemSummaryModel[]>([
     {
-      clothingImgPath: clothingImg4,
-      clothingPrice: 300,
-      clothingTitle: "Blue Fedora",
-      clothingImgAlt: "blue fedora",
+      id: 4,
+      imgUrl: clothingImg4,
+      price: 300,
+      name: "Blue Fedora",
+      imgAltText: "blue fedora",
     },
     {
-      clothingImgPath: clothingImg5,
-      clothingPrice: 250,
-      clothingTitle: "Pink Gloves",
-      clothingImgAlt: "pink gloves",
+      id: 5,
+      imgUrl: clothingImg5,
+      price: 250,
+      name: "Pink Gloves",
+      imgAltText: "pink gloves",
     },
     {
-      clothingImgPath: clothingImg6,
-      clothingPrice: 500,
-      clothingTitle: "White Winter Hat",
-      clothingImgAlt: "white winter hat",
+      id: 6,
+      imgUrl: clothingImg6,
+      price: 500,
+      name: "White Winter Hat",
+      imgAltText: "white winter hat",
     },
   ]);
 

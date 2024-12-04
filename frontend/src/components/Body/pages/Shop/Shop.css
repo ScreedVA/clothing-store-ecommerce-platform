@@ -35,6 +35,10 @@
     display: block;
   }
 
+  .shop-container > div.right {
+    padding: 0 60px;
+  }
+
   .shop-container > div.left {
     z-index: 1000;
     position: fixed;

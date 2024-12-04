@@ -2,10 +2,10 @@ import "./ClothingCarousel.css";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { ClothingItemSummaryConfig } from "../../../../models/CarouselModels";
+import { BackendClothingItemSummaryModel, FrontendClothingItemSummaryModel } from "../../../../models/ClothingModels";
 import ClothingItemSummary from "../../Clothing/ClothingItemSummary/ClothingItemSummary";
 interface ClothingCarouselProps {
-  carouselDetailsArray: ClothingItemSummaryConfig[];
+  carouselDetailsArray: FrontendClothingItemSummaryModel[];
 }
 
 const ClothingCarousel: React.FC<ClothingCarouselProps> = ({ carouselDetailsArray }) => {

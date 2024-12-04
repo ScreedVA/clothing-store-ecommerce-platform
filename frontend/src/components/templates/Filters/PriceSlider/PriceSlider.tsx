@@ -8,10 +8,20 @@ interface PriceSliderProps extends PriceSliderConfig {
   setValues: (prevValues: number[]) => void;
 }
 
-const PriceSlider: React.FC<PriceSliderProps> = ({ priceLowerLimit, priceUpperLimit, heading, setValues, values }) => {
+const PriceSlider: React.FC<PriceSliderProps> = ({
+  min: priceLowerLimit,
+  max: priceUpperLimit,
+  heading,
+  setValues,
+  values,
+}) => {
   const STEP = 1;
   const MIN = priceLowerLimit;
   const MAX = priceUpperLimit;
+
+  async function handleValueChange(values: number[]) {
+    await setValues(values);
+  }
 
   return (
     <>
@@ -23,10 +33,11 @@ const PriceSlider: React.FC<PriceSliderProps> = ({ priceLowerLimit, priceUpperLi
           min={MIN}
           max={MAX}
           values={values}
-          onChange={(values) => setValues(values)}
+          onChange={(values) => handleValueChange(values)}
           renderTrack={({ props, children }) => (
             <div
               {...props}
+              key={"price-slider-track"}
               style={{
                 ...props.style,
                 height: "6px",
@@ -44,6 +55,7 @@ const PriceSlider: React.FC<PriceSliderProps> = ({ priceLowerLimit, priceUpperLi
           renderThumb={({ props, index }) => (
             <div
               {...props}
+              key={`price-slider-thumb-${index}`}
               style={{
                 ...props.style,
                 height: "20px",

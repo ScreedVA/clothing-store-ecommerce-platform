@@ -1,14 +1,17 @@
-import { ClothingItemSummaryConfig } from "../../../../models/CarouselModels";
+import { BackendClothingItemSummaryModel, FrontendClothingItemSummaryModel } from "../../../../models/ClothingModels";
+import RatingStars from "../../RatingStar/RatingStars";
 import "./ClothingItemSummary.css";
-interface ClothingItemSummaryProps extends ClothingItemSummaryConfig {
+interface ClothingItemSummaryProps extends FrontendClothingItemSummaryModel {
   onItemClick?: () => void;
 }
 
 const ClothingItemSummary: React.FC<ClothingItemSummaryProps> = ({
-  clothingImgPath,
-  clothingPrice,
-  clothingTitle,
-  clothingImgAlt,
+  id,
+  primaryImgData,
+  name,
+  price,
+  rating,
+  imgAltText,
   onItemClick,
 }) => {
   return (
@@ -19,18 +22,21 @@ const ClothingItemSummary: React.FC<ClothingItemSummaryProps> = ({
           style={{ marginBottom: "2%", backgroundColor: "#b2beb5", borderRadius: "10px" }}
         >
           <a onClick={onItemClick || undefined}>
-            <img
-              src={clothingImgPath}
-              alt={`${clothingImgAlt}`}
-              className="clothing-image"
-              style={{ width: "100%", cursor: "pointer", transition: "transform 0.4s ease" }}
-            />
+            {primaryImgData && (
+              <img
+                src={URL.createObjectURL(primaryImgData)}
+                alt={`${imgAltText}`}
+                className="clothing-image"
+                style={{ width: "100%", cursor: "pointer", transition: "transform 0.4s ease" }}
+              />
+            )}
           </a>
         </div>
 
-        <p className="clothing-title">{clothingTitle}</p>
+        <RatingStars rating={rating} />
+        <p className="clothing-title">{name}</p>
         <p className="clothing-price">
-          <span>${clothingPrice}</span>
+          <span>${price}</span>
         </p>
       </div>
     </>

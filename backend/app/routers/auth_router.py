@@ -28,28 +28,6 @@ router = APIRouter(
     tags=['auth']
 )
 
-# oauth2_bearer = OAuth2PasswordBearer(tokenUrl='auth/token')
-
-
-# async def get_current_user(token: Annotated[str, Depends(oauth2_bearer)]):
-#     try:
-#         print(token)
-#         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-#         username: str = payload.get('sub')
-#         user_id: int = payload.get('id')
-#         is_admin: bool = payload.get('is_admin')
-#         if username is None or user_id is None:
-#             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
-#                                 detail='Could not validate user.')
-#         return {'username': username, 'id': user_id, 'is_admin': is_admin}
-#     except JWTError:
-#         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
-#                             detail='Could not validate user.')
-    
-# user_dependency = Annotated[dict, Depends(get_current_user)]
-
-
-
 @router.post("/register", status_code=status.HTTP_201_CREATED, response_model=GETFullTokenSchema)
 async def register_user_for_access_token(db: db_dependency,
                       request_model: POSTRegisterUserSchema):

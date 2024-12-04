@@ -48,14 +48,11 @@ function Navbar() {
   const updatePlaceholderHeight = () => {
     if (navbarRef.current && placeholderRef.current) {
       placeholderRef.current.style.height = `${navbarRef.current.offsetHeight}px`;
-      console.log(`${navbarRef.current.offsetHeight}px`);
     }
-    console.log("update nav");
   };
 
   useEffect(() => {
     // Configure Navbar Items
-    console.log("Navbar");
     updatePlaceholderHeight();
     // Add resize event listener
     window.addEventListener("resize", updatePlaceholderHeight);

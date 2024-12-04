@@ -53,7 +53,6 @@ def generate_jwt_bearer_token(username: str, user_id: int,  expires_delta: timed
 
 
 async def decode_jwt_bearer_token(token: Annotated[str, Depends(oauth2_bearer)]) -> GETDecodedTokenPayloadSchema:
-    print(token)
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
 

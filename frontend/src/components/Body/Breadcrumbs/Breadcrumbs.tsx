@@ -1,3 +1,4 @@
+import React from "react";
 import "./Breadcrumbs.css";
 import { Routes, Route, useLocation, Link } from "react-router-dom";
 
@@ -20,17 +21,17 @@ function Breadcrumbs() {
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           {breadcrumbs.map((crumb, index) => (
-            <>
-              {index === breadcrumbs.length - 1 && <span>{">"}</span>}
+            <React.Fragment key={`breadcrumb-${index}`}>
+              <span key={`separator-${index}`}>{index === breadcrumbs.length - 1 ? ">" : null}</span>
               <li
-                key={index}
+                key={`${crumb}-${index}`}
                 className={`breadcrumb-item ${index === breadcrumbs.length - 1 ? "active" : ""}`}
                 aria-current={index === breadcrumbs.length - 1 ? "page" : undefined}
               >
                 {/* If on the last crumb use non href element otherwise use Link */}
                 {index === breadcrumbs.length - 1 ? crumb.label : <Link to={crumb.path}>{crumb.label}</Link>}
               </li>
-            </>
+            </React.Fragment>
           ))}
         </ol>
       </nav>

@@ -10,3 +10,10 @@
   width: 100%;
   max-width: 100%;
 }
+
+@media (max-width: 1400px) {
+  form.side-bar-filter {
+    max-height: 400px;
+    overflow: auto;
+  }
+}

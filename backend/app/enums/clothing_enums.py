@@ -9,16 +9,31 @@ class EnumClothingFitTypes(Enum):
     CLASSIC = "Classic"
     BAGGY = "Baggy"
     RELAXED = "Relaxed"
+    OVERSIZED = "Oversized"
 
 
 class EnumClothingPatterns(Enum):
     PLAID = "Plaid"
     CAMOUFLAGE = "Camouflage"
+    SOLID = "Solid"
     PAISLEY = "Paisley"
     ABSTRACT = "Abstract"
-    STRIPES = "Stripes"
+    STRIPED = "Striped"
     POLKADOT = "Polka Dot"
-    STRIPES = "Stripes"
+    KNITTED = "Knitted"
+    CHECKERED = "Checkered"
 
-# class EnumClothingMaterialOptions(Enum):
-#     COTTON
+class EnumClothingSizeVarations(Enum):
+    XX_SMALL = "XX Small"
+    X_SMALL = "X Small"
+    SMALL = "Small"
+    MEDIUM = "Medium"
+    LARGE = "Large"
+    X_LARGE = "X Large"
+    XX_LARGE = "XX Large"
+    XXX_LARGE = "XXX Large"
+
+class EnumClothingColorVariations(Enum):
+    RED = "Red"
+    BLUE ="Blue"
+    BLACK = "Black"

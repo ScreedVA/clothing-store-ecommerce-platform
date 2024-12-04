@@ -1,13 +1,23 @@
+import { EnumCLothingSizeVarations } from "../enumeration/ClothingEnums";
+
+// Filter Configuration
 export interface PriceSliderConfig {
-  priceLowerLimit: number;
-  priceUpperLimit: number;
+  min: number;
+  max: number;
 }
 
-interface OptionsConfig {
+export interface OptionsSelectorConfig {
   innerText: string;
   value: string;
 }
 
-export interface OptionsSelectorConfig {
-  optionList: OptionsConfig[];
+export interface ClothingFilterConfig {
+  sizeSelectorConfigArray: OptionsSelectorConfig[];
+  priceSliderConfig: PriceSliderConfig;
+}
+
+// Backend Filters
+export interface BackendClothingFilterModel {
+  priceRange: PriceSliderConfig;
+  sizeSelector: EnumCLothingSizeVarations;
 }

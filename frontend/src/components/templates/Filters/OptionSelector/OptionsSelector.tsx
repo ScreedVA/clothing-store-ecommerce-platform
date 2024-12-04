@@ -1,19 +1,27 @@
-import { useState } from "react";
 import { OptionsSelectorConfig } from "../../../../models/FilterModels";
 import Button from "../../Button/Button";
 import "./OptionsSelector.css";
-import { ButtonConfigModel } from "../../../../models/ButtonModels";
-interface OptionsSelectorProps extends OptionsSelectorConfig {
+
+interface OptionsSelectorProps {
+  optionSelectorConfigList: OptionsSelectorConfig[];
   selectedIndex: number;
   updateSelctionIndex: (index: number) => void;
 }
 
-const OptionsSelector: React.FC<OptionsSelectorProps> = ({ optionList, selectedIndex, updateSelctionIndex }) => {
+const OptionsSelector: React.FC<OptionsSelectorProps> = ({
+  optionSelectorConfigList,
+  selectedIndex,
+  updateSelctionIndex,
+}) => {
+  async function handleSelectionChange(index: number) {
+    await updateSelctionIndex(index);
+  }
+
   return (
     <>
       <div className="options-selector-wrapper">
         <div className="option-selector-container">
-          {optionList.map((option, index) => (
+          {optionSelectorConfigList.map((option, index) => (
             <div key={index}>
               <Button
                 {...{
@@ -26,7 +34,7 @@ const OptionsSelector: React.FC<OptionsSelectorProps> = ({ optionList, selectedI
                   invertBackgroundColor: selectedIndex == index ? true : false,
                   btnTransition: "background-position 0.2s ease, color 0.2s ease",
                   btnOnClick: () => {
-                    updateSelctionIndex(index);
+                    handleSelectionChange(index);
                   },
                 }}
               />

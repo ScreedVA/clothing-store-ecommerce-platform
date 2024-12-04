@@ -1,2 +1,4 @@
 from .auth_models import SQLRefreshTokenTable
 from .user_models import SQLUserTable
+from .clothing_model import SQLClothingItemTable, SQLClothingImageTable, SQLClothingMaterialTable, SQLClothingVariationTable
+from .inventory_models import SQLInventoryLogTable
