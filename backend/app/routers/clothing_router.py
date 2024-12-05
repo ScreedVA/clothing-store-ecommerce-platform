@@ -1,5 +1,5 @@
 # Pypi dependancies
-from fastapi import APIRouter, HTTPException, Depends, Request
+from fastapi import APIRouter, HTTPException, Depends, Request, Query
 from starlette import status
 from sqlalchemy import and_, desc
 
@@ -9,10 +9,11 @@ import json
 
 # Module
 from models import SQLClothingItemTable, SQLClothingImageTable
-from schemas import GETClothingItemSummarySchema, FilterForClothingTable, GETClothingItemDetailsSchema
+from schemas import GETClothingItemSummarySchema, GETClothingItemDetailsSchema
 from services import transform_to_clothing_item_summary_schema_from_model, generate_filter_condition_clothing_item_summary_list, transform_to_clothing_item_details_schema_from_model
 from sessions import db_dependency
 from enums import EnumClothingSizeVarations, EnumClothingColorVariations
+from filters import FilterForClothingTable
 
 router = APIRouter(
     prefix='/product/clothing',
@@ -22,9 +23,12 @@ router = APIRouter(
 @router.get("/list", response_model=List[GETClothingItemSummarySchema])
 async def get_clothing_item_summary_list(db: db_dependency, clothing_filter: FilterForClothingTable = Depends()):
     
+    # Handle Pagination
+    offset = (clothing_filter.page - 1) * clothing_filter.page_size
+
     # Get Clothing Item List
     filtered_query = generate_filter_condition_clothing_item_summary_list(clothing_filter, db)
-    clothing_item_list: List[SQLClothingItemTable] = filtered_query.all()
+    clothing_item_list: List[SQLClothingItemTable] = filtered_query.offset(offset).limit(clothing_filter.page_size).all()
 
     # transform tables to -> List[GetClothingItemSummarySchema]
     clothing_item_summary_list: List[GETClothingItemSummarySchema] = []

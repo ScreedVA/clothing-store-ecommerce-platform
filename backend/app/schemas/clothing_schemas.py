@@ -1,5 +1,4 @@
 # Pypi Dependancies
-from fastapi import Query
 from pydantic import BaseModel, Field
 # Python Library
 from typing import Optional, List
@@ -26,12 +25,5 @@ class GETClothingItemDetailsSchema(BaseClothingSchema):
     description: str = Field(alias="description")
     color_variations: List[EnumClothingColorVariations] = Field(alias="colorVariations")
     size_variations: List[EnumClothingSizeVarations] = Field(alias="sizeVariations")
-
-# Filters
-class FilterForClothingTable(BaseModel):
-    min_price: Optional[int] = Query(None)
-    max_price: Optional[int] = Query(None)
-    size_selection: Optional[EnumClothingSizeVarations] = Query(None)
-    color_selection: Optional[EnumClothingColorVariations] = Query(None)
 
 

@@ -3,6 +3,7 @@
   min-height: 60vh;
   max-width: 100%;
   box-sizing: border-box;
+  padding-bottom: 5%;
 }
 
 @media (max-width: 2000px) {

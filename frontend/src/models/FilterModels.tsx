@@ -18,7 +18,12 @@ export interface ClothingFilterConfig {
 }
 
 // Backend Filters
-export interface BackendClothingFilterModel {
+interface FilterBaseModel {
+  page: number;
+  pageSize: number;
+}
+
+export interface BackendClothingFilterModel extends FilterBaseModel {
   priceRange?: PriceSliderConfig;
   sizeSelector?: EnumCLothingSizeVarations;
   colorSelector?: EnumClothingColorVariations;

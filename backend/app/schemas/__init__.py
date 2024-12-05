@@ -1,3 +1,3 @@
 from .user_schemas import GETUserDetailsSchema, POSTRegisterUserSchema, PUTUpdateUserDetailsSchema, GETUserSummarySchema
 from .auth_schemas import POSTRefreshTokenSchema, GETAccessToken,GETFullTokenSchema, GETDecodedTokenPayloadSchema, TokenPayloadSchema
-from .clothing_schemas import GETClothingItemSummarySchema, GETClothingItemDetailsSchema, FilterForClothingTable
+from .clothing_schemas import GETClothingItemSummarySchema, GETClothingItemDetailsSchema

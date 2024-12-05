@@ -1,0 +1,1 @@
+from .clothing_filter import FilterForClothingTable

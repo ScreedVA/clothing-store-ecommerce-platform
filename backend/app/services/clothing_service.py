@@ -7,8 +7,9 @@ from typing import List
 
 # Modules
 from models import SQLClothingItemTable, SQLClothingImageTable, SQLClothingVariationTable
-from schemas import GETClothingItemSummarySchema, GETClothingItemDetailsSchema, FilterForClothingTable
+from schemas import GETClothingItemSummarySchema, GETClothingItemDetailsSchema
 from enums import EnumClothingColorVariations, EnumClothingSizeVarations
+from filters import FilterForClothingTable
 
 def transform_to_clothing_item_summary_schema_from_model(clothing_item_table: SQLClothingItemTable, primary_clothing_image: SQLClothingImageTable = None) -> GETClothingItemSummarySchema:
     

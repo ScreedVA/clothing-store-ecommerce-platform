@@ -25,10 +25,7 @@ const SideBarFilter: React.FC<SideBarFilterProps> = ({
 }) => {
   // Price Slider Configuration
   const [filterPriceSliderConfig] = useState<PriceSliderConfig>(priceSliderConfig);
-  const [priceSliderValues, setPriceSliderValues] = useState([
-    filterPriceSliderConfig.max * 0.25,
-    filterPriceSliderConfig.max * 0.75,
-  ]);
+  const [priceSliderValues, setPriceSliderValues] = useState([0, filterPriceSliderConfig.max * 0.75]);
 
   // Size Selector Configuration
   const [selectedSizeIndex, setSelectedSizeIndex] = useState<number>(0);

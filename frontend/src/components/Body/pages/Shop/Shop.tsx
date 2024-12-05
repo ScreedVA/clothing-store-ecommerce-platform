@@ -35,6 +35,8 @@ function Shop() {
     initHighestItemPrice();
   }, []);
   const [filter, setFilter] = useState<BackendClothingFilterModel>({
+    page: 1,
+    pageSize: 6,
     priceRange: { min: 0, max: 500 },
     sizeSelector: EnumCLothingSizeVarations.SMALL,
   });
@@ -52,6 +54,7 @@ function Shop() {
       color: enumValue,
     })),
   });
+
   function updateFilter(newFilter: BackendClothingFilterModel) {
     setFilter({ ...newFilter });
   }
@@ -60,26 +63,21 @@ function Shop() {
     setVwWidth(window.innerWidth);
   };
 
-  async function initClothingItemSummaryModel() {
+  async function initClothingItemSummaryModel(backendFilter: BackendClothingFilterModel | undefined) {
     const frontendClothingItemListResData: FrontendClothingItemSummaryModel[] = await GETClothingItemSummaryList(
-      filter
+      backendFilter
     );
 
     setClothingGalleryList(frontendClothingItemListResData);
   }
 
   async function applyFilter() {
-    console.log(filter);
-    await initClothingItemSummaryModel();
+    await initClothingItemSummaryModel(filter);
   }
 
   useEffect(() => {
-    console.log(filter);
-  }, [filter]);
-
-  useEffect(() => {
     // Initialize CLothing Gallery List
-    initClothingItemSummaryModel();
+    initClothingItemSummaryModel(undefined);
 
     // Add event listener to update width on window resize
     window.addEventListener("resize", handleResize);
@@ -138,7 +136,9 @@ function Shop() {
                 ></i>
               )}
             </span>
-            {clothingGalleryList && <ClothingGallery clothinglist={clothingGalleryList} />}
+            <div className="shop-clothing-gallery-container">
+              {clothingGalleryList && <ClothingGallery clothinglist={clothingGalleryList} />}
+            </div>
           </div>
         </div>
       </div>

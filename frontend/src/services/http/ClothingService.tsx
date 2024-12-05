@@ -8,11 +8,14 @@ import { GETImageFile } from "./FileService";
 const API_BASE_URL: string = `${API_BASE_DOMAIN}/product/clothing`;
 
 export async function GETClothingItemSummaryList(
-  filter: BackendClothingFilterModel
+  filter: BackendClothingFilterModel | undefined
 ): Promise<FrontendClothingItemSummaryModel[]> {
   // Configure Filters
   const params = new URLSearchParams();
   if (filter) {
+    params.append("page", String(filter.page));
+    params.append("page_size", String(filter.pageSize));
+
     if (filter.priceRange) {
       filter.priceRange.min && params.append("min_price", String(filter.priceRange.min));
       filter.priceRange.max && params.append("max_price", String(filter.priceRange.max));
