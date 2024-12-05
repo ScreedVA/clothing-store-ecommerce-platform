@@ -9,7 +9,7 @@ from typing import List
 from models import SQLClothingItemTable, SQLClothingImageTable, SQLClothingVariationTable
 from schemas import GETClothingItemSummarySchema, GETClothingItemDetailsSchema
 from enums import EnumClothingColorVariations, EnumClothingSizeVarations
-from filters import FilterForClothingTable
+from filters import FilterRequestClothingTable
 
 def transform_to_clothing_item_summary_schema_from_model(clothing_item_table: SQLClothingItemTable, primary_clothing_image: SQLClothingImageTable = None) -> GETClothingItemSummarySchema:
     
@@ -44,7 +44,7 @@ def transform_to_clothing_item_details_schema_from_model(clothing_item_table: SQ
 
     return clothing_item_schema
 
-def generate_filter_condition_clothing_item_summary_list(clothingFilter: FilterForClothingTable, db:Session) -> Query[SQLClothingItemTable]:
+def generate_filter_condition_clothing_item_summary_list(clothingFilter: FilterRequestClothingTable, db:Session) -> Query[SQLClothingItemTable]:
     
     query = db.query(SQLClothingItemTable)
     if clothingFilter.size_selection or clothingFilter.color_selection:

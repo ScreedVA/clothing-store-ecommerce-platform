@@ -6,6 +6,10 @@
   padding-bottom: 5%;
 }
 
+.shop-container div.right-top {
+  min-height: 100vh;
+}
+
 @media (max-width: 2000px) {
   .shop-container {
     display: grid;
@@ -30,6 +34,7 @@
 @media (max-width: 1400px) {
   .shop-wrapper {
     padding: 0px;
+    padding-bottom: 10%;
   }
 
   .shop-container {

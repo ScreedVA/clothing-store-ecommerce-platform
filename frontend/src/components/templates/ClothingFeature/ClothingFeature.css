@@ -1,6 +1,5 @@
 .clothing-feat-container {
   padding: 5% 5%;
-  /* padding-bottom: 10%; */
 }
 
 .clothing-feat-container .clothing-feat-header {
@@ -9,7 +8,7 @@
 }
 
 .clothing-feat-carousel {
-  margin-bottom: 5%;
+  margin-bottom: 7%;
   height: 300px;
   display: flex;
   justify-content: center;

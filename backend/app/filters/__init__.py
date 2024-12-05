@@ -1,1 +1,2 @@
-from .clothing_filter import FilterForClothingTable
+from .clothing_filter import FilterRequestClothingTable
+from .base_filter import FilterResponsePageConfig

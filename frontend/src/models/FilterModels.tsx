@@ -23,6 +23,12 @@ interface FilterBaseModel {
   pageSize: number;
 }
 
+export interface FilterResponsePageDetails {
+  total_pages: number;
+  total_items: number;
+  items_per_page: number;
+}
+
 export interface BackendClothingFilterModel extends FilterBaseModel {
   priceRange?: PriceSliderConfig;
   sizeSelector?: EnumCLothingSizeVarations;

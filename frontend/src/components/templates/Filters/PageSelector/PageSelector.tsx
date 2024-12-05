@@ -1,74 +1,60 @@
-import { BackendClothingFilterModel } from "../../../../models/FilterModels";
+import React from "react";
 
-interface PageSelector {
-  filter: BackendClothingFilterModel;
-  updateFilter: () => void;
+interface PageSelectorProps {
+  currentPage: number;
   totalPages: number;
+  updatePage: (page: number) => void;
 }
-const PageSelector: React.FC<PageSelector> = ({ filter, updateFilter, totalPages }) => {
-  const maxPagesToShow: number = 5;
-  const currentPage: number = filter.page;
-  const halfMaxPages: number = Math.floor(maxPagesToShow / 2);
 
-  function generatePageNumbers() {
-    const pages: number[] = [];
-    let startPage: number = Math.max(currentPage - halfMaxPages, 1);
-    let endPage: number = Math.min(startPage + maxPagesToShow - 1, totalPages);
+const PageSelector: React.FC<PageSelectorProps> = ({ currentPage, totalPages, updatePage }) => {
+  // Helper function to generate an array of page numbers
+  const generatePageNumbers = () => {
+    const pages = [];
+    const maxPagesToShow = 5; // Number of page numbers to display at a time
+    const halfMaxPages = Math.floor(maxPagesToShow / 2);
+
+    let startPage = Math.max(currentPage - halfMaxPages, 1);
+    let endPage = Math.min(startPage + maxPagesToShow - 1, totalPages);
 
     if (endPage - startPage + 1 < maxPagesToShow) {
       startPage = Math.max(1, endPage - maxPagesToShow + 1);
     }
 
     for (let i = startPage; i <= endPage; i++) {
-      pageNumbers.push(i);
+      pages.push(i);
     }
-
     return pages;
-  }
-  const pageNumbers: number[] = generatePageNumbers();
+  };
 
-  //   function handleFilterChange() {
-  //     updateFilter((prevFields: any) => {
-
-  // //         return {
-  // //             ...prevFields,
-
-  // //         }
-  // //     })
-  // //   }
+  const pageNumbers = generatePageNumbers();
 
   return (
-    <>
-      <div style={styles.paginationContainer}>
-        <button style={styles.button} disabled={currentPage === 1} onClick={() => onPageChange(currentPage - 1)}>
-          Previous
-        </button>
+    <div style={styles.paginationContainer}>
+      <button style={styles.button} disabled={currentPage === 1} onClick={() => updatePage(currentPage - 1)}>
+        Previous
+      </button>
 
-        {pageNumbers.map((page) => (
-          <button
-            key={page}
-            style={{
-              ...styles.pageButton,
-              ...(page === currentPage ? styles.activePage : {}),
-            }}
-            onClick={() => onPageChange(page)}
-          >
-            {page}
-          </button>
-        ))}
-
+      {pageNumbers.map((page) => (
         <button
-          style={styles.button}
-          disabled={currentPage === totalPages}
-          onClick={() => onPageChange(currentPage + 1)}
+          key={page}
+          style={{
+            ...styles.pageButton,
+            ...(page === currentPage ? styles.activePage : {}),
+          }}
+          onClick={() => updatePage(page)}
         >
-          Next
+          {page}
         </button>
-      </div>
-    </>
+      ))}
+
+      <button style={styles.button} disabled={currentPage === totalPages} onClick={() => updatePage(currentPage + 1)}>
+        Next
+      </button>
+    </div>
   );
 };
 
+// Basic styles for the pagination component
 const styles = {
   paginationContainer: {
     display: "flex",

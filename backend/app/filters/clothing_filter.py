@@ -7,12 +7,9 @@ from typing import Optional
 
 # Module
 from enums import EnumClothingColorVariations, EnumClothingSizeVarations
+from .base_filter import FilterBaseModel
 
-class FilterBaseModel(BaseModel):
-    page: Optional[int] = Query(default=1, ge=1)
-    page_size: Optional[int] = Query(default=10, ge=1, le=100)
-
-class FilterForClothingTable(FilterBaseModel):
+class FilterRequestClothingTable(FilterBaseModel):
     min_price: Optional[int] = Query(default=None)
     max_price: Optional[int] = Query(default=None)
     size_selection: Optional[EnumClothingSizeVarations] = Query(default=None)

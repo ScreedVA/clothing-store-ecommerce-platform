@@ -1,7 +1,7 @@
 footer.footer-container {
   min-height: 50vh;
-  padding: 2.5% 7.5%;
-  padding-bottom: 5%;
+  padding: 0 7.5%;
+  /* padding-bottom: 5%; */
   background-color: aliceblue;
   display: flex;
   justify-content: flex-start;
@@ -9,6 +9,7 @@ footer.footer-container {
 
 .footer-list {
   margin-right: 50px;
+  /* height: 50px; */
   display: flex;
   flex-direction: column;
   gap: 10px;

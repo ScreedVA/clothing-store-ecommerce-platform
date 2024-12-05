@@ -1,5 +1,5 @@
 import { BackendClothingItemSummaryModel, FrontendClothingItemSummaryModel } from "../../models/ClothingModels";
-import { BackendClothingFilterModel } from "../../models/FilterModels";
+import { BackendClothingFilterModel, ClothingFilterConfig } from "../../models/FilterModels";
 import { API_BASE_DOMAIN } from "../CommonService";
 import { getAccessToken } from "../StorageService";
 import { handle401Exception } from "./AuthService";
@@ -49,6 +49,31 @@ export async function GETClothingItemSummaryList(
   }
 
   return frontendResData;
+}
+
+export async function GETPageConfigDetails(filter: BackendClothingFilterModel | undefined) {
+  // Configure Filters
+  const params = new URLSearchParams();
+  if (filter) {
+    params.append("page", String(filter.page));
+    params.append("page_size", String(filter.pageSize));
+
+    if (filter.priceRange) {
+      filter.priceRange.min && params.append("min_price", String(filter.priceRange.min));
+      filter.priceRange.max && params.append("max_price", String(filter.priceRange.max));
+    }
+
+    filter.colorSelector && params.append("color_selector", filter.colorSelector);
+    filter.sizeSelector && params.append("size_selector", String(filter.sizeSelector));
+  }
+
+  const url: string = `${API_BASE_URL}/total_pages?${params.toString()}`;
+  // Handle Clothing Item Request
+  let response: Response = await fetch(url, {
+    method: "GET",
+  });
+
+  return response;
 }
 
 export async function GETClothingItemSummaryHighestPrice() {
