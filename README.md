@@ -37,7 +37,7 @@
 
 ---
 
-## **Getting Started**
+## **Getting Started (Frontend)**
 
 ### **Prerequisites**
 
@@ -90,7 +90,49 @@ npm run build
 
 ```
 
-## **Projet Structure**
+## **Getting Started (Backend)**
+
+### **Prerequisites**
+
+Make sure you have the following installed:
+
+- [pip](https://pypi.org/project/pip/)
+
+## **Installation**
+
+1. Clone the repository(If havn't already):
+
+```bash
+
+git clone https://github.com/ScreedVA/clothing-store-ecommerce-platform.git
+
+```
+
+2. Navigate to the project directory:
+
+```bash
+
+cd backend\app
+
+```
+
+3. Activate virtual environement
+
+```bash
+
+python -m venv .venv
+
+.venv\Scrips\activate
+
+```
+
+3. Install dependencies
+
+```bash
+
+pip install -r requirements.txt
+
+```
 
 ```plaintext
 
