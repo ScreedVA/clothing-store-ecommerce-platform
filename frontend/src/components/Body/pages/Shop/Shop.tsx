@@ -5,7 +5,6 @@ import {
   BackendClothingFilterModel,
   ClothingFilterConfig,
   FilterResponsePageDetails,
-  OptionsSelectorConfig,
 } from "../../../../models/FilterModels";
 import { FrontendClothingItemSummaryModel } from "../../../../models/ClothingModels";
 

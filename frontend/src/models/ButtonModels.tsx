@@ -3,8 +3,6 @@ interface ColorContrastConfigModel {
   altColor: string;
 }
 
-interface btnTabConfig {}
-
 export interface ButtonConfigModel {
   btnText: string;
   btnType?: "submit" | "reset" | "button";

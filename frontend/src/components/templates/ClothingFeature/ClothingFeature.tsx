@@ -1,9 +1,8 @@
 import "./ClothingFeature.css";
-import { useState } from "react";
 
 import ClothingCarousel from "../Carousels/ClothingCarousel/ClothingCarousel";
 import Button from "../Button/Button";
-import { BackendClothingItemSummaryModel, FrontendClothingItemSummaryModel } from "../../../models/ClothingModels";
+import { FrontendClothingItemSummaryModel } from "../../../models/ClothingModels";
 
 interface ClothingFeatureProps {
   clothingFeatHeader: string;

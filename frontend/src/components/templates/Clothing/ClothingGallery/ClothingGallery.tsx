@@ -1,4 +1,4 @@
-import { BackendClothingItemSummaryModel, FrontendClothingItemSummaryModel } from "../../../../models/ClothingModels";
+import { FrontendClothingItemSummaryModel } from "../../../../models/ClothingModels";
 import ClothingItemSummary from "../ClothingItemSummary/ClothingItemSummary";
 import "./ClothingGallery.css";
 

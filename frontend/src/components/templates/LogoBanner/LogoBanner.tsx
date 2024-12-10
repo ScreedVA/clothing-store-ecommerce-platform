@@ -1,5 +1,4 @@
 import "./LogoBanner.css";
-import { logoBannerModel } from "../../../models/LogoBannerModels";
 
 interface LogoBannerProps {
   logoImgList: string[];

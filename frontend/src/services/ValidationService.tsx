@@ -1,4 +1,4 @@
-import { FrontendRegisterRequestModel, POSTLoginRequestModel, POSTRegisterRequestModel } from "../models/AuthModels";
+import { FrontendRegisterRequestModel, POSTLoginRequestModel } from "../models/AuthModels";
 import { ErrorLoginRequestModel, ErrorRegisterRequestModel } from "../models/ErrorModels";
 
 export function validateLoginRequestModel(validationModel: POSTLoginRequestModel) {

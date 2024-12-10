@@ -20,7 +20,7 @@ const imgCarouselModelList: ImgCarouselModel[] = [{ original: img1 }, { original
 function Hero() {
   const navigate = useNavigate();
   const [showContent, setShowContent] = useState(false);
-
+  showContent;
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowContent(true);

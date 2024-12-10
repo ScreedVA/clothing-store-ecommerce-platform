@@ -5,14 +5,14 @@ import { FormBoxConfigModel, FormFieldElementsEnum, FormInputTypesEnum } from ".
 import { AnchorConfigModel, ButtonConfigModel } from "../../../../../models/ButtonModels";
 import { ErrorRegisterRequestModel } from "../../../../../models/ErrorModels";
 import { validateRegisterRequestModel } from "../../../../../services/ValidationService";
-import { FrontendRegisterRequestModel, POSTRegisterRequestModel } from "../../../../../models/AuthModels";
+import { FrontendRegisterRequestModel } from "../../../../../models/AuthModels";
 import { AuthContext, POSTRegisterRequest } from "../../../../../services/http/AuthService";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
-  const [registerFormConfig, setRegisterFormConfig] = useState<FormBoxConfigModel[]>([
+  const [registerFormConfig] = useState<FormBoxConfigModel[]>([
     {
       formFieldArray: [
         {

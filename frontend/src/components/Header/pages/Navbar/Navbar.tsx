@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { useState, useEffect, useContext, useRef } from "react";
 import { NavItemConfigModel } from "../../../../models/NavbarModel";
-import { IconField } from "primeng/iconfield";
 import { AuthContext } from "../../../../services/http/AuthService";
 
 function Navbar() {
