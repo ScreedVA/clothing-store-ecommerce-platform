@@ -1,5 +1,3 @@
-import { env } from "process";
-
 const EXTERNAL_DOMAIN: string = "https://clothing-store-ecommerce-platform-backend.onrender.com";
 
 // Check if the app is running in production or development
