@@ -116,7 +116,7 @@ cd backend\app
 
 ```
 
-3. Activate virtual environement
+3. Create and activate virtual environement
 
 ```bash
 
@@ -131,6 +131,14 @@ python -m venv .venv
 ```bash
 
 pip install -r requirements.txt
+
+```
+
+4. Run Application
+
+```bash
+
+uvicorn main:app --reload
 
 ```
 
