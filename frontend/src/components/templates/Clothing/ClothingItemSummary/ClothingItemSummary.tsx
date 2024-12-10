@@ -1,4 +1,4 @@
-import { FrontendClothingItemSummaryModel } from "../../../../models/ClothingModels";
+import { BackendClothingItemSummaryModel, FrontendClothingItemSummaryModel } from "../../../../models/ClothingModels";
 import RatingStars from "../../RatingStar/RatingStars";
 import "./ClothingItemSummary.css";
 interface ClothingItemSummaryProps extends FrontendClothingItemSummaryModel {
@@ -6,6 +6,7 @@ interface ClothingItemSummaryProps extends FrontendClothingItemSummaryModel {
 }
 
 const ClothingItemSummary: React.FC<ClothingItemSummaryProps> = ({
+  id,
   primaryImgData,
   name,
   price,

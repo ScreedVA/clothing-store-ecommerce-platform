@@ -1,6 +1,8 @@
 import { BackendClothingItemSummaryModel, FrontendClothingItemSummaryModel } from "../../models/ClothingModels";
-import { BackendClothingFilterModel } from "../../models/FilterModels";
+import { BackendClothingFilterModel, ClothingFilterConfig } from "../../models/FilterModels";
 import { API_BASE_DOMAIN } from "../CommonService";
+import { getAccessToken } from "../StorageService";
+import { handle401Exception } from "./AuthService";
 import { GETImageFile } from "./FileService";
 
 const API_BASE_URL: string = `${API_BASE_DOMAIN}/product/clothing`;

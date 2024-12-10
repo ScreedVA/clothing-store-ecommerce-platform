@@ -1,4 +1,4 @@
-import { FrontendRegisterRequestModel, POSTLoginRequestModel } from "./AuthModels";
+import { FrontendRegisterRequestModel, POSTLoginRequestModel, POSTRegisterRequestModel } from "./AuthModels";
 
 export interface ErrorLoginRequestModel extends Partial<POSTLoginRequestModel> {}
 
