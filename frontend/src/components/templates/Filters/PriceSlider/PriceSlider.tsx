@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { PriceSliderConfig } from "../../../../models/FilterModels";
 // import Slider, Range from "rc-slider";
 import { Range } from "react-range";

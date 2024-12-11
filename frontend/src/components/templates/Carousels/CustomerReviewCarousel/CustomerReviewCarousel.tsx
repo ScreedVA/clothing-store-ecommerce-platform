@@ -2,7 +2,7 @@ import "./CustomerReviewCarousel.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { CustomerReviewDetails } from "../../../../models/CarouselModels";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 interface CustomerReviewCarouselProps {
   reviewDetailsArray: CustomerReviewDetails[];
 }

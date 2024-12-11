@@ -2,7 +2,7 @@ import "./ClothingCarousel.css";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { BackendClothingItemSummaryModel, FrontendClothingItemSummaryModel } from "../../../../models/ClothingModels";
+import { FrontendClothingItemSummaryModel } from "../../../../models/ClothingModels";
 import ClothingItemSummary from "../../Clothing/ClothingItemSummary/ClothingItemSummary";
 interface ClothingCarouselProps {
   carouselDetailsArray: FrontendClothingItemSummaryModel[];
